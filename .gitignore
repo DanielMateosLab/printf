@@ -4,3 +4,5 @@ test*
 *.swp
 .editorconfig
 *.dSYM
+**/*.o
+**/*.a
