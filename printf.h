@@ -17,12 +17,14 @@
 # include <unistd.h>
 # include "libft/libft.h"
 
-int	ft_printf(char const *format, int count, ...);
+int	ft_printf(char const *format_str, int count, ...);
 
 typedef struct s_va_state
 {
 	va_list	args;
 	int		i;
+	int		j;
+	char	*result;
 }	t_va_state;
 
 #endif
