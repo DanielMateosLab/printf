@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damateos <damateos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/24 18:36:39 by damateos          #+#    #+#             */
-/*   Updated: 2024/04/15 22:51:03 by damateos         ###   ########.fr       */
+/*   Created: 2024/04/15 22:07:03 by damateos          #+#    #+#             */
+/*   Updated: 2024/04/15 23:03:06 by damateos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft/libft.h"
+int	ft_puthex(unsigned int n, int is_upper)
+{
+	int		count;
+	char	*base;
 
-int	ft_printf(char const *format_str, int count, ...);
-int	ft_putunbr(unsigned int n);
-int	ft_puthex(unsigned int n, int is_upper);
-int	ft_putptr(void *ptr);
-
-#endif
+	count = 0;
+	if (is_upper)
+		base = "0123456789ABCDEF";
+	else
+		base = "0123456789abcdef";
+	if (n < 16)
+		return (ft_putchar_fd(base[n], 1));
+	else
+	{
+		count += ft_puthex(n / 16, is_upper);
+		count += ft_putchar_fd(base[n % 16], 1);
+	}
+	return (count);
+}
