@@ -6,7 +6,7 @@
 /*   By: damateos <damateos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:38:48 by damateos          #+#    #+#             */
-/*   Updated: 2024/05/13 22:38:45 by damateos         ###   ########.fr       */
+/*   Updated: 2024/05/13 22:53:15 by damateos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	put_in_format(char format, va_list args)
 {
-	if (format == 'c' || format == '%')
+	if (format == '%')
+		return (pf_putchar('%'));
+	else if (format == 'c')
 		return (pf_putchar(va_arg(args, int)));
 	else if (format == 's')
 		return (pf_putstr(va_arg(args, char *)));
@@ -28,7 +30,7 @@ int	put_in_format(char format, va_list args)
 		return (pf_puthex(va_arg(args, unsigned int), 0));
 	else if (format == 'X')
 		return (pf_puthex(va_arg(args, unsigned int), 1));
-	return (0);
+	return (pf_putchar(format));
 }
 
 int	ft_printf(char const *format_str, ...)
