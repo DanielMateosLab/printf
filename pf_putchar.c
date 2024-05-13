@@ -6,11 +6,11 @@
 /*   By: damateos <damateos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 21:41:55 by damateos          #+#    #+#             */
-/*   Updated: 2024/05/13 21:44:19 by damateos         ###   ########.fr       */
+/*   Updated: 2024/05/13 22:25:44 by damateos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	pf_putchar(char c)
 {

@@ -6,11 +6,11 @@
 /*   By: damateos <damateos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:52:27 by damateos          #+#    #+#             */
-/*   Updated: 2024/05/13 22:12:58 by damateos         ###   ########.fr       */
+/*   Updated: 2024/05/13 22:26:31 by damateos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	pf_putunbr(unsigned int n)
 {
@@ -21,7 +21,7 @@ int	pf_putunbr(unsigned int n)
 		count += pf_putchar('0' + n);
 	else
 	{
-		count += ft_putunbr(n / 10);
+		count += pf_putunbr(n / 10);
 		count += pf_putchar('0' + n % 10);
 	}
 	return (count);
