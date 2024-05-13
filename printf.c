@@ -6,23 +6,30 @@
 /*   By: damateos <damateos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:38:48 by damateos          #+#    #+#             */
-/*   Updated: 2024/05/13 22:05:14 by damateos         ###   ########.fr       */
+/*   Updated: 2024/05/13 22:09:31 by damateos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-/** printf Modifiers Documentation:
- * c - Character
- * s - String
- * d - Signed decimal integer
- * i - Signed decimal integer (same as 'd')
- * u - Unsigned decimal integer
- * p - Pointer (hexadecimal address)
- * x - Hexadecimal (lowercase)
- * X - Hexadecimal (uppercase)
- * % - Percent sign
-*/
+int put_in_format(char format, va_list args)
+{
+	if (format == 'c' || format == '%')
+		return (pf_putchar(va_arg(args, int)));
+	else if (format == 's')
+		return (pf_putstr(va_arg(args, char *)));
+	else if (format == 'd' || format == 'i')
+		return (pf_putnbr(va_arg(args, int)));
+	else if (format == 'u')
+		return (pf_putunbr(va_arg(args, unsigned int)));
+	else if (format == 'p')
+		return (pf_putptr(va_arg(args, void *)));
+	else if (format == 'x')
+		return (pf_puthex(va_arg(args, unsigned int), 0));
+	else if (format == 'X')
+		return (pf_puthex(va_arg(args, unsigned int), 1));
+	return (0);
+}
 
 int	ft_printf(char const *format_str, int count, ...)
 {
@@ -38,20 +45,7 @@ int	ft_printf(char const *format_str, int count, ...)
 		if (format_str[i] == '%')
 		{
 			i++;
-			if (format_str[i] == 'c' || format_str[i] == '%')
-				count += pf_putchar(va_arg(args, int));
-			else if (format_str[i] == 's')
-				count += pf_putstr(va_arg(args, char *));
-			else if (format_str[i] == 'd' || format_str[i] == 'i')
-				count += pf_putnbr(va_arg(args, int));
-			else if (format_str[i] == 'u')
-				count += pf_putunbr(va_arg(args, unsigned int));
-			else if (format_str[i] == 'p')
-				count += pf_putptr(va_arg(args, void *));
-			else if (format_str[i] == 'x')
-				count += pf_puthex(va_arg(args, unsigned int), 0);
-			else if (format_str[i] == 'X')
-				count += pf_puthex(va_arg(args, unsigned int), 1);
+			count += put_in_format(format_str[i], args);
 		}
 		else
 			count += pf_putchar(format_str[i]);
