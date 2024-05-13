@@ -6,7 +6,7 @@
 /*   By: damateos <damateos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:38:48 by damateos          #+#    #+#             */
-/*   Updated: 2024/05/13 21:45:44 by damateos         ###   ########.fr       */
+/*   Updated: 2024/05/13 22:05:14 by damateos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,21 @@ int	ft_printf(char const *format_str, int count, ...)
 	{
 		if (format_str[i] == '%')
 		{
-			// TODO: write implementations for putchar putstr putnbr that return the number of characters printed
 			i++;
 			if (format_str[i] == 'c' || format_str[i] == '%')
 				count += pf_putchar(va_arg(args, int));
 			else if (format_str[i] == 's')
-				count += ft_putstr(va_arg(args, char *));
+				count += pf_putstr(va_arg(args, char *));
 			else if (format_str[i] == 'd' || format_str[i] == 'i')
-				count += ft_putnbr(va_arg(args, int));
+				count += pf_putnbr(va_arg(args, int));
 			else if (format_str[i] == 'u')
-				count += ft_putunbr(va_arg(args, unsigned int));
+				count += pf_putunbr(va_arg(args, unsigned int));
 			else if (format_str[i] == 'p')
-				count += ft_putptr(va_arg(args, void *));
+				count += pf_putptr(va_arg(args, void *));
 			else if (format_str[i] == 'x')
-				count += ft_puthex(va_arg(args, unsigned int), 0);
+				count += pf_puthex(va_arg(args, unsigned int), 0);
 			else if (format_str[i] == 'X')
-				count += ft_puthex(va_arg(args, unsigned int), 1);
+				count += pf_puthex(va_arg(args, unsigned int), 1);
 		}
 		else
 			count += pf_putchar(format_str[i]);

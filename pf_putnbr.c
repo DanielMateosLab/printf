@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunbr.c                                       :+:      :+:    :+:   */
+/*   pf_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damateos <damateos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 21:52:27 by damateos          #+#    #+#             */
-/*   Updated: 2024/04/15 23:01:00 by damateos         ###   ########.fr       */
+/*   Created: 2024/05/13 21:59:44 by damateos          #+#    #+#             */
+/*   Updated: 2024/05/13 22:01:40 by damateos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "printf.h"
-
-int	ft_putunbr(unsigned int n)
+int pf_putnbr(int n)
 {
-	int	count;
+	long	ln;
+	int		count;
 
 	count = 0;
-	if (n < 10)
-		count += ft_putchar_fd('0' + n, 1);
-	else
+	if (n < 0)
 	{
-		count += ft_putunbr(n / 10);
-		count += ft_putchar_fd('0' + n % 10, 1);
+		count += pf_putchar('-');
+		ln = (long)n * -1;
 	}
+	else
+		ln = (long)n;
+	if (ln > 9)
+		count += pf_putnbr(ln / 10);
+	count += pf_putchar('0' + ln % 10);
 	return (count);
 }

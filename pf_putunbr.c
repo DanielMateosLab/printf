@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   pf_putunbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damateos <damateos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/24 18:36:39 by damateos          #+#    #+#             */
-/*   Updated: 2024/05/13 22:03:39 by damateos         ###   ########.fr       */
+/*   Created: 2024/04/15 21:52:27 by damateos          #+#    #+#             */
+/*   Updated: 2024/05/13 21:57:34 by damateos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
 
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft/libft.h"
+#include "printf.h"
 
-int	ft_printf(char const *format_str, int count, ...);
-int	pf_putunbr(unsigned int n);
-int	pf_puthex(unsigned int n, int is_upper);
-int	pf_putptr(void *ptr);
-int	pf_putchar(char c);
-int pf_putstr(char *s);
-int pf_putnbr(int n);
+int	pf_putunbr(unsigned int n)
+{
+	int	count;
 
-#endif
+	count = 0;
+	if (n < 10)
+		count += pf_putchar('0' + n);
+	else
+	{
+		count += ft_putunbr(n / 10);
+		count += pf_putchar('0' + n % 10);
+	}
+	return (count);
+}
