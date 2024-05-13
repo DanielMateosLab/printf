@@ -6,15 +6,15 @@
 /*   By: damateos <damateos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 21:47:30 by damateos          #+#    #+#             */
-/*   Updated: 2024/05/13 21:55:44 by damateos         ###   ########.fr       */
+/*   Updated: 2024/05/13 22:12:24 by damateos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int pf_putstr(char *s)
+int	pf_putstr(char *s)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (*s)

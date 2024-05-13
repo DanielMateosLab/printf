@@ -6,11 +6,11 @@
 /*   By: damateos <damateos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 21:59:44 by damateos          #+#    #+#             */
-/*   Updated: 2024/05/13 22:01:40 by damateos         ###   ########.fr       */
+/*   Updated: 2024/05/13 22:13:13 by damateos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int pf_putnbr(int n)
+int	pf_putnbr(int n)
 {
 	long	ln;
 	int		count;

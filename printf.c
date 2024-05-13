@@ -6,13 +6,13 @@
 /*   By: damateos <damateos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:38:48 by damateos          #+#    #+#             */
-/*   Updated: 2024/05/13 22:09:31 by damateos         ###   ########.fr       */
+/*   Updated: 2024/05/13 22:12:06 by damateos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int put_in_format(char format, va_list args)
+int	put_in_format(char format, va_list args)
 {
 	if (format == 'c' || format == '%')
 		return (pf_putchar(va_arg(args, int)));
