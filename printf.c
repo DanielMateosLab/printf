@@ -6,7 +6,7 @@
 /*   By: damateos <damateos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:38:48 by damateos          #+#    #+#             */
-/*   Updated: 2024/04/15 23:05:57 by damateos         ###   ########.fr       */
+/*   Updated: 2024/05/13 21:45:44 by damateos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_printf(char const *format_str, int count, ...)
 			// TODO: write implementations for putchar putstr putnbr that return the number of characters printed
 			i++;
 			if (format_str[i] == 'c' || format_str[i] == '%')
-				count += ft_putchar(va_arg(args, int));
+				count += pf_putchar(va_arg(args, int));
 			else if (format_str[i] == 's')
 				count += ft_putstr(va_arg(args, char *));
 			else if (format_str[i] == 'd' || format_str[i] == 'i')
@@ -55,7 +55,7 @@ int	ft_printf(char const *format_str, int count, ...)
 				count += ft_puthex(va_arg(args, unsigned int), 1);
 		}
 		else
-			count += ft_putchar(format_str[i]);
+			count += pf_putchar(format_str[i]);
 		i++;
 	}
 	va_end(args);

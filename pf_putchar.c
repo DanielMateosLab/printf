@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   pf_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damateos <damateos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/24 18:36:39 by damateos          #+#    #+#             */
-/*   Updated: 2024/05/13 21:44:10 by damateos         ###   ########.fr       */
+/*   Created: 2024/05/13 21:41:55 by damateos          #+#    #+#             */
+/*   Updated: 2024/05/13 21:44:19 by damateos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft/libft.h"
-
-int	ft_printf(char const *format_str, int count, ...);
-int	ft_putunbr(unsigned int n);
-int	ft_puthex(unsigned int n, int is_upper);
-int	ft_putptr(void *ptr);
-int	pf_putchar(char c);
-
-#endif
+int	pf_putchar(char c)
+{
+	write(1, &c, 1);
+	return (1);
+}
