@@ -6,30 +6,30 @@
 /*   By: damateos <damateos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:38:48 by damateos          #+#    #+#             */
-/*   Updated: 2024/05/15 22:51:11 by damateos         ###   ########.fr       */
+/*   Updated: 2024/05/15 23:18:17 by damateos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	put_in_format(char format, va_list args)
+int	put_in_format(char format, va_list *args)
 {
 	if (format == '%')
 		return (pf_putchar('%'));
 	else if (format == 'c')
-		return (pf_putchar(va_arg(args, int)));
+		return (pf_putchar(va_arg(*args, int)));
 	else if (format == 's')
-		return (pf_putstr(va_arg(args, char *)));
+		return (pf_putstr(va_arg(*args, char *)));
 	else if (format == 'd' || format == 'i')
-		return (pf_putnbr(va_arg(args, int)));
+		return (pf_putnbr(va_arg(*args, int)));
 	else if (format == 'u')
-		return (pf_putunbr(va_arg(args, unsigned int)));
+		return (pf_putunbr(va_arg(*args, unsigned int)));
 	else if (format == 'p')
-		return (pf_putptr(va_arg(args, void *)));
+		return (pf_putptr(va_arg(*args, void *)));
 	else if (format == 'x')
-		return (pf_puthex(va_arg(args, unsigned int), 0));
+		return (pf_puthex(va_arg(*args, unsigned int), 0));
 	else if (format == 'X')
-		return (pf_puthex(va_arg(args, unsigned int), 1));
+		return (pf_puthex(va_arg(*args, unsigned int), 1));
 	return (pf_putchar(format));
 }
 
@@ -51,7 +51,7 @@ int	ft_printf(char const *format_str, ...)
 			i++;
 			if (!format_str[i])
 				break ;
-			count += put_in_format(format_str[i], args);
+			count += put_in_format(format_str[i], &args);
 		}
 		else
 			count += pf_putchar(format_str[i]);
