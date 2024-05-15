@@ -6,13 +6,13 @@
 /*   By: damateos <damateos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 22:07:03 by damateos          #+#    #+#             */
-/*   Updated: 2024/05/13 22:25:47 by damateos         ###   ########.fr       */
+/*   Updated: 2024/05/15 23:27:28 by damateos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	pf_puthex(unsigned int n, int is_upper)
+int	pf_puthex(uintptr_t n, int is_upper)
 {
 	int		count;
 	char	*base;
