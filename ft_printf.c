@@ -6,7 +6,7 @@
 /*   By: damateos <damateos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:38:48 by damateos          #+#    #+#             */
-/*   Updated: 2024/05/13 22:53:15 by damateos         ###   ########.fr       */
+/*   Updated: 2024/05/15 22:51:11 by damateos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int	ft_printf(char const *format_str, ...)
 		if (format_str[i] == '%')
 		{
 			i++;
+			if (!format_str[i])
+				break ;
 			count += put_in_format(format_str[i], args);
 		}
 		else
