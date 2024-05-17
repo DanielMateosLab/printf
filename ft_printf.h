@@ -6,7 +6,7 @@
 /*   By: damateos <damateos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:36:39 by damateos          #+#    #+#             */
-/*   Updated: 2024/05/17 17:56:59 by damateos         ###   ########.fr       */
+/*   Updated: 2024/05/17 18:08:53 by damateos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdint.h>
-# include "libft/libft.h"
 
 int	ft_printf(char const *format_str, ...);
 int	pf_putunbr(unsigned int n);
