@@ -6,7 +6,7 @@
 /*   By: damateos <damateos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 21:47:30 by damateos          #+#    #+#             */
-/*   Updated: 2024/05/15 23:05:01 by damateos         ###   ########.fr       */
+/*   Updated: 2024/05/17 17:20:44 by damateos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	pf_putstr(char *s)
 	count = 0;
 	if (!s)
 		return (write(1, "(null)", 6));
-	while (*s)
-		count += pf_putchar(*s++);
-	return (count);
+	while (s[count])
+		count++;
+	return (write(1, s, count));
 }
