@@ -6,7 +6,7 @@
 /*   By: damateos <damateos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:38:48 by damateos          #+#    #+#             */
-/*   Updated: 2024/05/17 17:09:40 by damateos         ###   ########.fr       */
+/*   Updated: 2024/05/17 19:30:08 by damateos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,24 +38,22 @@ int	ft_printf(char const *format_str, ...)
 	int			i;
 	va_list		args;
 	int			count;
-	int			iter_res;
+	int			err;
 
 	if (!format_str)
 		return (-1);
 	count = 0;
 	i = 0;
-	iter_res = 0;
+	err = 0;
 	va_start(args, format_str);
 	while (format_str[i])
 	{
 		if (format_str[i] != '%')
-			iter_res = pf_putchar(format_str[i++]);
+			count += check_err(pf_putchar(format_str[i++]), &err);
 		else if (format_str[++i])
-			iter_res = put_in_format(format_str[i++], &args);
-		if (iter_res < 0)
+			count += check_err(put_in_format(format_str[i++], &args), &err);
+		if (err)
 			return (-1);
-		else
-			count += iter_res;
 	}
 	va_end(args);
 	return (count);
